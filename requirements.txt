@@ -1,0 +1,12 @@
+# Heretic LLM abliteration tool
+heretic-llm
+
+# --- PyTorch for Apple Silicon (MPS) ---
+# Install torch with MPS support separately:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#
+# For nightly MPS improvements:
+#   pip install --pre torch torchvision --index-url https://download.pytorch.org/whl/nightly/cpu
+#
+# For CUDA (remote GPU / RunPod):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124

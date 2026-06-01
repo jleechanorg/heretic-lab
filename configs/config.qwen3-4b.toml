@@ -1,0 +1,23 @@
+# Heretic config — Qwen/Qwen3-4B-Instruct-2507 on Apple M4 Pro (48 GB)
+#
+# Lightweight model (~8 GB FP16) — great for quick testing and
+# validating the pipeline before running larger models.
+#
+# Usage:
+#   heretic --model Qwen/Qwen3-4B-Instruct-2507 --config configs/config.qwen3-4b.toml
+
+[abliteration]
+# Fewer trials for quick iteration
+n_trials = 100
+n_startup_trials = 10
+
+# Smaller model — can use larger batch
+batch_size = 8
+
+[device]
+device_map = "auto"
+offload_outputs_to_cpu = true
+
+[precision]
+dtypes = ["auto", "float16", "bfloat16"]
+quantization = "none"

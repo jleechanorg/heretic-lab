@@ -1,0 +1,23 @@
+# Heretic config — Remote GPU (A100 80 GB on RunPod)
+#
+# Full 80 GB VRAM — run larger models without quantization.
+# Optimized for throughput with larger batch sizes.
+#
+# Usage:
+#   heretic --model google/gemma-3-27b-it --config configs/config.remote-a100.toml
+
+[abliteration]
+# More trials for best quality on expensive GPU time
+n_trials = 300
+n_startup_trials = 30
+
+# A100 80 GB — larger batch for faster convergence
+batch_size = 16
+
+[device]
+device_map = "auto"
+offload_outputs_to_cpu = false
+
+[precision]
+dtypes = ["auto", "bfloat16", "float16"]
+quantization = "none"

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+
+# Heretic / model artifacts
+checkpoints/
+models/
+output/
+results/*.safetensors
+results/*.gguf
+
+# Large binary files
+*.safetensors
+*.gguf
+*.bin
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets
+.env
+.env.local

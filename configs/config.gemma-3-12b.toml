@@ -1,0 +1,24 @@
+# Heretic config — google/gemma-3-12b-it on Apple M4 Pro (48 GB)
+#
+# gemma-3-12b-it at FP16 uses ~24 GB, leaving headroom for activations
+# during abliteration. No quantization needed on 48 GB unified memory.
+#
+# Usage:
+#   heretic --model google/gemma-3-12b-it --config configs/config.gemma-3-12b.toml
+
+[abliteration]
+# Number of optimization trials (more = better quality, slower)
+n_trials = 200
+n_startup_trials = 20
+
+# Batch size — keep moderate for 48 GB with room for activations
+batch_size = 4
+
+[device]
+device_map = "auto"
+offload_outputs_to_cpu = true
+
+[precision]
+# Try auto first, then explicit float16/bfloat16
+dtypes = ["auto", "float16", "bfloat16"]
+quantization = "none"
